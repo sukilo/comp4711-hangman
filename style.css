@@ -1,0 +1,63 @@
+#button_alphabet button{
+    width:70px;
+    height:70px;
+    background:rgb(39, 57, 160);
+    color:white;
+    padding-top:10px;
+    margin: 0 10px 10px 0;
+    border: solid 1px rgb(17, 69, 87);
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#definition{
+  font-size: 20px;
+  font-family:arial;
+  text-align: center;
+  display: block;
+}
+
+#thisword li {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    display: inline-block;
+    padding: 0 10px;
+    font-size:1.6em;
+  }
+
+  #thisword{
+      text-align:center;
+  }
+
+  #triesLeft {
+    font-size: 1.6em;
+    font-family:arial;
+    text-align: center;
+    display: block;
+  }
+
+  #score{
+    font-size: 1.6em;
+    font-family:arial;
+    text-align: center;
+    display: block;
+  }
+
+
+.resetContainer{
+    text-align:center;
+}
+
+  #reset button{
+    width:70px;
+    height:50px;
+    background:rgb(3, 7, 1);
+    color:white;
+    padding-top:10px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align:center;
+  }
