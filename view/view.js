@@ -2,14 +2,14 @@
 var createAlphabet = function () {
     for (var i = 0; i < alphabet.length; i++) {
     btn = document.createElement("BUTTON"); // Create a <button> element
-    t = document.createTextNode(alphabet[i]); // Create a text node
+    text = document.createTextNode(alphabet[i]); // Create a text node
     track();
-    btn.appendChild(t);                     // Append the text to <button>
+    btn.appendChild(text);                     // Append the text to <button>
     document.getElementById("button_alphabet").appendChild(btn); // Append <button> to <body>
     }
 }
 
-//Create guess of random word using '_'
+//Create guess of word by choosing random word and then replacing with '_'
 function createGuess () {
   wordSel = words[chosenWord][0];
   wordSel = wordSel.replace(/\s/g, "_");
