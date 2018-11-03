@@ -21,7 +21,14 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
   </head>
   
-<body>
+  <body>
+    <div class="loginContainer">
+      <input id="txtEmail" type="email" placeholder="Email">
+      <input id="txtPassword" type="password" placeholder="Password">
+      <button id="btnLogin" class="btn btn-action">Log in</button>
+      <button id="btnSignup" class="btn btn-secondary">Sign Up</button>
+      <button id="btnLogout" class="btn btn-action hide">Log Out</button>
+    </div>
     <div id="button_alphabet">
     </div>
     <div id="definition">
@@ -38,34 +45,22 @@
     <div id ="guessedLetters">
     </div>
     
-<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCdsNWK8L_pwITGoG5J9dlWxtAwfFZQU-w",
-    authDomain: "comp4711assignmt1.firebaseapp.com",
-    databaseURL: "https://comp4711assignmt1.firebaseio.com",
-    projectId: "comp4711assignmt1",
-    storageBucket: "comp4711assignmt1.appspot.com",
-    messagingSenderId: "728014763979"
-  };
-  firebase.initializeApp(config);
-</script>
-
+    <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+    <script src="app.js"></script>
     <script src="model/model.js"></script>  
     <script src="view/view.js"></script>  
     <script src="controller/controller.js"></script>  
-<script>
-    createAlphabet();
-    createGuess();
-    track();
-    tries();
-    //score();
-	</script>
+    <script>
+      createAlphabet();
+      createGuess();
+      track();
+      tries();
+      //score();
+    </script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
