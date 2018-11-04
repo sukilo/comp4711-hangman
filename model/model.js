@@ -7,7 +7,7 @@ var guessedLetters = [];
 var getTries = document.getElementById("triesLeft");
 var getScore = document.getElementById("score");
 var defintion;
-var counter;
+var score;
 var space;
 
 var alphabet = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o",
@@ -29,5 +29,5 @@ var words = [
     ["water","a colorless, transparent, odorless, tasteless liquid."],
 ];
 
-var resetButton = document.createElement("BUTTON");
-var btn_reset_txt = document.createTextNode("Reset");
+//var resetButton = document.createElement("BUTTON");
+//var btn_reset_txt = document.createTextNode("Reset");

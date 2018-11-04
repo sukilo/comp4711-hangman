@@ -15,7 +15,7 @@ function createGuess () {
   wordSel = wordSel.replace(/\s/g, "_");
   console.log(wordSel);
   maxTries = 7;
-  counter = 0;
+  score = 0;
   space = 0;
   answer();
 }
@@ -41,20 +41,20 @@ function answer() {
   }
 }
 
-//Onclick function - keeps track of the counters, tries
+//Onclick function - keeps track of the score, tries
 function track() {
     btn.onclick = function () {
       var guess = (this.innerHTML);
       for (var i = 0; i < wordSel.length; i++) {
         if (wordSel[i] === guess) {
           guesses[i].innerHTML = guess;
-          counter += 1;
+          score += 1;
         } 
       }
       var j = (wordSel.indexOf(guess));
       if (j === -1) {
         maxTries -= 1;
-        counter -=1;
+        score -=1;
         tries();
       } else {
         tries();
@@ -65,32 +65,32 @@ function track() {
 //Show number of tries left (max:7)
 function tries() {
   getTries.innerHTML = "Tries Left: " + maxTries;
-  getScore.innerHTML = "Your score: " + counter;
-    if (maxTries < 1) {
-        alert( "Game Over");
-        resetGame();
-    }
-    for (var i = 0; i < guesses.length; i++) {
-      if (counter + space >= guesses.length) {
+  getScore.innerHTML = "Your score: " + score;
+    // if (maxTries < 1) {
+    //     alert( "Game Over");
+    //     resetGame();
+    // }
+    // for (var i = 0; i < guesses.length; i++) {
+    //   if (score + space >= guesses.length) {
         //alert("Congratulation, you won!");
-        win();
+        //win();
         //resetGame();
-      }
-    }
+    //   }
+    // }
   }
 
-function win() {
-  window.setInterval(function() {
-    if (confirm("Congratulation, you won! Do you want to play again?")) {
-      resetGame();
-      } else {
-        window.close();
-      }    
-    },100);
-}
+// function win() {
+//   window.setInterval(function() {
+//     if (confirm("Congratulation, you won! Do you want to play again?")) {
+//       resetGame();
+//       } else {
+//         window.close();
+//       }    
+//     },100);
+// }
 
 //Reset button and calls resetGame function
-resetButton.appendChild(btn_reset_txt);
-resetButton.onclick = function() {resetGame();};
-document.getElementById("reset").appendChild(resetButton);
+//resetButton.appendChild(btn_reset_txt);
+//resetButton.onclick = function() {resetGame();};
+//document.getElementById("reset").appendChild(resetButton);
 

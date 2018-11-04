@@ -18,8 +18,7 @@
     <![endif]-->
 	
 	  <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="jquery-3.3.1.min.js"></script>
+	  <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   
   <body>
@@ -31,40 +30,17 @@
       <button id="btnLogout" class="btn btn-action hide">Log Out</button>
       <button id="btnLeaderboard">Leaderboard</button>
     </div>
-    <div id="button_alphabet">
-    </div>
-    <div id="definition">
-    </div>
-    <div id ="hold">
-    </div>
-    <div id ="triesLeft">
-    </div>
-    <div id ="score">
-    </div>
-    <div class ="scoreContainer">
-      <button id="btnSubmit">Submit</button>
-    </div>
-    <div class= "resetContainer">
-      <button id="reset">Reset</div>
-    </div>
-    <div id ="guessedLetters">
-    </div>
     <p>
         <ol id="leaderboard">
         </ol>
     </p>
+    
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
     <script src="app.js"></script>
     <script src="model/model.js"></script>  
     <script src="view/view.js"></script>  
     <script src="controller/controller.js"></script>  
-    <script>
-      createAlphabet();
-      createGuess();
-      track();
-      tries();
-      //score();
-    </script>
+  
 
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
