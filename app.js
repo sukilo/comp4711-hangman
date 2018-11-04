@@ -46,6 +46,7 @@
         promise.catch(e => console.log(e.message));
     })
 
+    //Logout event
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
     })
@@ -61,9 +62,6 @@
         }
     })
 
-    var ref = database.ref('scores');
-
-
     btnSubmit.addEventListener('click', function(){
         var data = {
             score: score
@@ -71,11 +69,6 @@
         console.log(data);
         ref.push(data);
     });
-
-    // btnLeaderboard.addEventListener('click',function(){
-    //     window.location.href = "leaderboard.html";
-    
-    // });
 }());
 
 function gotData(data){
@@ -88,11 +81,13 @@ function gotData(data){
     for (var i =0; i < keys.length; i++){
         var k = keys[i];
         var score = scores[k].score;
-        //console.log(score);
+        console.log(score);
 
         //create element and add it to leaderboard
-        var li = document.createElement("li", "Score:" + score);
-        li.parent('leaderboard');
+        var li = document.createElement("LI");
+        scoretext = document.createTextNode(score);
+        li.appendChild(scoretext);
+        document.getElementById("leaderboard").appendChild(li);
     }
 }
 
