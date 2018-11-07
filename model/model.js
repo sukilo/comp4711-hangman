@@ -31,3 +31,4 @@ var words = [
 
 //var resetButton = document.createElement("BUTTON");
 //var btn_reset_txt = document.createTextNode("Reset");
+

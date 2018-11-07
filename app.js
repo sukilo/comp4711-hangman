@@ -21,7 +21,9 @@
     const btnSignup = document.getElementById('btnSignup');
     const btnLogout = document.getElementById('btnLogout');
     const btnSubmit = document.getElementById('btnSubmit');
+    const btnLeaderboard = document.getElementById('btnLeaderboard');
 
+    if (window.location.href.match('login.html') != null) {
     //Add login event
     btnLogin.addEventListener('click', e => {
         //Get email and password
@@ -30,6 +32,9 @@
         const auth = firebase.auth();
         //Sign in
         const promise = auth.signInWithEmailAndPassword(email,pass);
+        promise.then(e => {
+            window.location.href = "index.html";
+            });
         //catches error if theres no user
         promise.catch(e => console.log(e.message));
     })
@@ -45,10 +50,13 @@
         //catches error if theres no user
         promise.catch(e => console.log(e.message));
     })
+}  
 
+if (window.location.href.match('index.html') != null) {
     //Logout event
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
+        window.location.href = "login.html";
     })
 
     //Add a realtime authentication listener
@@ -70,6 +78,22 @@
         ref.push(data);
     });
 
+    btnLeaderboard.addEventListener('click',function(){
+        window.location.href = "leaderboard.html";
+    });
+}
+
+    if (window.location.href.match('leaderboard.html') != null) {
+        btnHome.addEventListener('click',function(){
+            window.location.href = "index.html";
+        });
+
+         //Logout event
+    btnLogout.addEventListener('click', e => {
+        firebase.auth().signOut();
+        window.location.href = "login.html";
+    });
+    }
 }());
 
 function gotData(data){
@@ -78,21 +102,20 @@ function gotData(data){
     var scores = data.val();
     //give array of all the keys in JS object/data
     var keys = Object.keys(scores);
-    var sortedK= keys.sort((keyA,keyB) => scores[keyB].score-scores[keyA].score);
+    var sortedKey= keys.sort((keyA,keyB) => scores[keyB].score-scores[keyA].score);
     //console.log(sortedK);
+    for (var i =0; i < sortedKey.length; i++){
+    var k = sortedKey[i];
+    var score = scores[k].score;
+    console.log(score);
     
-    for (var i =0; i < sortedK.length; i++){
-        //sortedK.map(sortedK => scores[sortedK])
-        var k = sortedK[i];
-        var score = scores[k].score;
-        console.log(score);
-
-        //create element and add it to leaderboard
-        var li = document.createElement("LI");
-        scoretext = document.createTextNode(score);
-        li.appendChild(scoretext);
-        document.getElementById("leaderboard").appendChild(li);
+    //create element and add it to leaderboard
+    var li = document.createElement("LI");
+    scoretext = document.createTextNode(score);
+    li.appendChild(scoretext);
+    document.getElementById("leaderboard").appendChild(li);
     }
+    
 }
 
 function errData(err){

@@ -18,33 +18,23 @@
     <![endif]-->
 	
 	  <!--CSS-->
-	  <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   
   <body>
-    <div class="loginContainer">
-      <input id="txtEmail" type="email" placeholder="Email">
-      <input id="txtPassword" type="password" placeholder="Password">
-      <button id="btnLogin" class="btn btn-action">Log in</button>
-      <button id="btnSignup" class="btn btn-secondary">Sign Up</button>
-      <button id="btnLogout" class="btn btn-action hide">Log Out</button>
-      <button id="btnLeaderboard">Leaderboard</button>
+    <div class="logoutContainer">
+      <button id="btnLogout" class="btn btn-secondary">Log Out</button>
+      <button id="btnHome">Home</button>
     </div>
     <p>
-        <ol id="leaderboard">
+        <ol id="leaderboard"><h1>Leaderboard</h1>
         </ol>
     </p>
-    
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
-    <script src="app.js"></script>
-    <script src="model/model.js"></script>  
-    <script src="view/view.js"></script>  
-    <script src="controller/controller.js"></script>  
-  
-
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="app.js"></script> 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
