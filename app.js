@@ -12,7 +12,7 @@
     var database = firebase.database();
     var ref = database.ref('scores');
     //on the event value, have two callbacks for recieving data and error
-    ref.on('value',gotData, errData);
+    ref.orderByChild('score').on('value',gotData, errData);
 
     //Get Elements
     const txtEmail = document.getElementById('txtEmail');
@@ -54,7 +54,7 @@
     //Add a realtime authentication listener
     firebase.auth().onAuthStateChanged(firebaseUser =>{
         if(firebaseUser){
-            console.log(firebaseUser);
+            //console.log(firebaseUser);
             btnLogout.classList.remove('hide');
         }else{
             console.log('not logged in');
@@ -66,9 +66,10 @@
         var data = {
             score: score
         }
-        console.log(data);
+        //console.log(data);
         ref.push(data);
     });
+
 }());
 
 function gotData(data){
@@ -77,9 +78,12 @@ function gotData(data){
     var scores = data.val();
     //give array of all the keys in JS object/data
     var keys = Object.keys(scores);
-    console.log(keys);
-    for (var i =0; i < keys.length; i++){
-        var k = keys[i];
+    var sortedK= keys.sort((keyA,keyB) => scores[keyB].score-scores[keyA].score);
+    //console.log(sortedK);
+    
+    for (var i =0; i < sortedK.length; i++){
+        //sortedK.map(sortedK => scores[sortedK])
+        var k = sortedK[i];
         var score = scores[k].score;
         console.log(score);
 
