@@ -6,6 +6,8 @@ var guesses=[];
 var guessedLetters = [];        
 var getTries = document.getElementById("triesLeft");
 var getScore = document.getElementById("score");
+var getAlphabet = document.getElementById("button_alphabet");
+var reset = document.getElementById("reset");
 var defintion;
 var score;
 var space;
@@ -16,19 +18,17 @@ var alphabet = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o",
 //array of words
 var words = [
     ["electricity","a form of energy resulting from the existence of charged particles."],
-    ["tattoo","an indelible mark or figure fixed upon the body by insertion of pigment under the skin."],
-    ["sushi","a Japanese dish consisting of small balls or rolls cold cooked rice served with raw fish, vegetables, or egg."],
-    ["hungry","feeling or displaying the need for food."],
+    ["tattoo","a form of body modification where a design is made by inserting ink under the skin."],
+    ["sushi","a Japanese dish made of cold cooked rice with raw fish, vegetables, wrapped with seaweed."],
+    ["hungry","feeling the need to eat food."],
     ["javascript","an object-oriented computer programming language commonly used to create interactive effects within web browsers"],
-    ["amazing","causing great surprise or wonder; astonishing."],
-    ["blue","of a color intermediate between green and violet, as of the sky or sea on a sunny day."],
+    ["elephant","a large mammal with two tusks and a long trunk."],
+    ["blue","a color intermediate between green and violet like the sky or sea on a sunny day."],
     ["wonderful","inspiring delight, pleasure, or admiration; extremely good; marvelous."],
-    ["pokemon","a video game, card game, or other toy featuring certain Japanese cartoon characters."],
-    ["facebook","a popular social networking website"],
-    ["tiger","a very large solitary cat with a yellow-brown coat striped with black and becoming increasingly rare."],
+    ["icecream","a delicious frozen dessert."],
+    ["facebook","a popular social networking website."],
+    ["tiger","a large orange and black striped feline."],
     ["water","a colorless, transparent, odorless, tasteless liquid."],
 ];
 
-//var resetButton = document.createElement("BUTTON");
-//var btn_reset_txt = document.createTextNode("Reset");
 

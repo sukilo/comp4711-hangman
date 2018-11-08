@@ -41,10 +41,17 @@ function answer() {
   }
 }
 
+function removeAll(){
+  document.getElementById("checkList").innerHTML = "";
+}
+
+
 //Onclick function - keeps track of the score, tries
 function track() {
     btn.onclick = function () {
       var guess = (this.innerHTML);
+      this.onclick = null;
+      this.style.backgroundColor = "#387263";
       for (var i = 0; i < wordSel.length; i++) {
         if (wordSel[i] === guess) {
           guesses[i].innerHTML = guess;
@@ -66,31 +73,12 @@ function track() {
 function tries() {
   getTries.innerHTML = "Tries Left: " + maxTries;
   getScore.innerHTML = "Your score: " + score;
-    // if (maxTries < 1) {
-    //     alert( "Game Over");
-    //     resetGame();
-    // }
-    // for (var i = 0; i < guesses.length; i++) {
-    //   if (score + space >= guesses.length) {
-        //alert("Congratulation, you won!");
-        //win();
-        //resetGame();
-    //   }
-    // }
+    if (maxTries < 1) {
+      getAlphabet.innerHTML= "Game Over";
+    }
+    for (var i = 0; i < guesses.length; i++) {
+      if (score + space >= guesses.length) {
+        getAlphabet.innerHTML="Congratulation, you won!";
+     }
   }
-
-// function win() {
-//   window.setInterval(function() {
-//     if (confirm("Congratulation, you won! Do you want to play again?")) {
-//       resetGame();
-//       } else {
-//         window.close();
-//       }    
-//     },100);
-// }
-
-//Reset button and calls resetGame function
-//resetButton.appendChild(btn_reset_txt);
-//resetButton.onclick = function() {resetGame();};
-//document.getElementById("reset").appendChild(resetButton);
-
+}
