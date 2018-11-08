@@ -25,7 +25,7 @@
     const btnLeaderboard = document.getElementById('btnLeaderboard');
     const btnReset = document.getElementById('btnReset');
 
-    if (window.location.href.match('login.html') != null) {
+    if (window.location.href.match('index.html') != null) {
     //Add login event
     btnLogin.addEventListener('click', e => {
         //Get email and password
@@ -35,7 +35,7 @@
         //Sign in
         const promise = auth.signInWithEmailAndPassword(email,pass);
         promise.then(e => {
-            window.location.href = "index.html";
+            window.location.href = "hangman.html";
             });
         //catches error if theres no user
         promise.catch(e => console.log(e.message));
@@ -52,7 +52,7 @@
         const promise = auth.createUserWithEmailAndPassword(email,pass);
         
         promise.then(e => {
-            let user = firebase.auth().currentUser;
+            var user = firebase.auth().currentUser;
             user.updateProfile({
               displayName: "" + name
             });
@@ -60,17 +60,25 @@
               name: "" + name
             });
           });
+        
+        
         //catches error if theres no user
         promise.catch(e => console.log(e.message));
     })
 }  
 
-    if (window.location.href.match('index.html') != null) {
+    if (window.location.href.match('hangman.html') != null) {
     //Logout event
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     })
+
+    //Plag again event
+    btnReset.addEventListener('click', e => {
+    window.location.reload();
+    }); 
+    
 
     //Add a realtime authentication listener
     firebase.auth().onAuthStateChanged(function(firebaseUser){
@@ -85,8 +93,8 @@
 
     //Submit your score
     btnSubmit.addEventListener('click', function(){
-        let user = firebase.auth().currentUser;
-        let data = {
+        var user = firebase.auth().currentUser;
+        var data = {
             name: user.displayName,
             score: score
         }
@@ -101,39 +109,37 @@
 
     if (window.location.href.match('leaderboard.html') != null) {
         btnHome.addEventListener('click',function(){
-            window.location.href = "index.html";
+            window.location.href = "hangman.html";
         });
 
          //Logout event
     btnLogout.addEventListener('click', e => {
         firebase.auth().signOut();
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     });
     }
-
-    btnReset.addEventListener('click', e => {
-        window.location.reload();
-    });
     
 }());
 
 function gotData(data){
     //call .val to see actual data
-    let scores = data.val();
+    //console.log(data.val());
+    var scores = data.val();
     //give array of all the keys in JS object/data
-    let keys = Object.keys(scores);
-    let sortedKey= keys.sort((keyA,keyB) => scores[keyB].score-scores[keyA].score);
-    
+    var keys = Object.keys(scores);
+    var sortedKey= keys.sort((keyA,keyB) => scores[keyB].score-scores[keyA].score);
+    //console.log(sortedK);
     for (var i =0; i < sortedKey.length; i++){
-    let k = sortedKey[i];
-    let score = scores[k].score;
-    //console.log(score);
+    var k = sortedKey[i];
+    var score = scores[k].score;
+    console.log(score);
     
     //create element and add it to leaderboard
-    let li = document.createElement("LI");
+    var li = document.createElement("LI");
     scoretext = document.createTextNode(scores[k].name + "   " + score);
     li.appendChild(scoretext);
     document.getElementById("leaderboard").appendChild(li);
+    //document.getElementById("leaderboard").innerHTML += "Name: " + scores[k].name + " " + " Score: " + score + "<br>";
     }
 }
 

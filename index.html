@@ -1,49 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-      <!--CSS-->
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <title>Hangman Game</title>
-      </head>
-  <body>
-    <div class = "topContainer">
-      <button id="btnLogout" class="btn btn-action">Log Out</button>
-      <button id="btnLeaderboard" class="btn btn-action">Leaderboard</button>
-    </div>
-    <h1>Guess the word!</h1>
-    <div id="button_alphabet">
-    </div>
-    <div id="definition">
-    </div>
-    <div id ="hold">
-    </div>
-    <div id ="triesLeft">
-    </div>
-    <div id ="score">
-    </div>
-    <div class ="resetContainer">
-      <button id="btnSubmit" class="btn btn-action">Submit</button>
-      <button id="btnReset" class="btn btn-action">Play Again</button>
-    </div>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
-    <script src="app.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="model/model.js"></script>  
     <script src="view/view.js"></script>  
-    <script src="controller/controller.js"></script>  
-    <script>
-      createAlphabet();
-      createGuess();
-      track();
-      tries();
-    </script>
+    <script src="controller/controller.js"></script>
+    <title>Hangman Game</title>
+  </head>
+  
+  <body>
+    <div class="loginContainer">
+        <h1>Hangman Game</h1><br>
+        <div class="form">
+            <input id="txtName" type="name" placeholder="Name">
+            <input id="txtEmail" type="email" placeholder="Email">
+            <input id="txtPassword" type="password" placeholder="Password">
+            <button id="btnLogin" class="btn btn-action">Log in</button><br>
+            <button id="btnSignup" class="btn btn-secondary">Sign Up</button>
+            </div>
+    </div>
+    <script src="app.js"></script>
   </body>
 </html>
