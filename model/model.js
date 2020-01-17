@@ -1,22 +1,22 @@
-var maxTries = 7;
-var wordSel;
-var chosenWord;
-var guess;
-var guesses=[];
-var guessedLetters = [];        
-var getTries = document.getElementById("triesLeft");
-var getScore = document.getElementById("score");
-var getAlphabet = document.getElementById("button_alphabet");
-var reset = document.getElementById("reset");
-var defintion;
-var score;
-var space;
+let maxTries = 7;
+let wordSel;
+let chosenWord;
+let guess;
+let guesses=[];
+let guessedLetters = [];        
+let getTries = document.getElementById("triesLeft");
+let getScore = document.getElementById("score");
+let getAlphabet = document.getElementById("button_alphabet");
+let reset = document.getElementById("reset");
+let defintion;
+let score;
+let space;
 
-var alphabet = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o",
+let alphabet = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o",
                     "p","q","r","s","t","u","v","w","x","y","z"];
 
 //array of words
-var words = [
+let words = [
     ["electricity","a form of energy resulting from the existence of charged particles."],
     ["tattoo","a form of body modification where a design is made by inserting ink under the skin."],
     ["sushi","a Japanese dish made of cold cooked rice with raw fish, vegetables, wrapped with seaweed."],

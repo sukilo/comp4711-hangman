@@ -1,6 +1,6 @@
 //Creates the alphabet buttonss
-var createAlphabet = function () {
-    for (var i = 0; i < alphabet.length; i++) {
+let createAlphabet = function () {
+    for (let i = 0; i < alphabet.length; i++) {
     btn = document.createElement("BUTTON"); // Create a <button> element
     text = document.createTextNode(alphabet[i]); // Create a text node
     track();
@@ -25,7 +25,7 @@ function answer() {
   wordHolder = document.getElementById('hold');
   correct = document.createElement('ul');
 
-  for (var i = 0; i < wordSel.length; i++) {
+  for (let i = 0; i < wordSel.length; i++) {
     correct.setAttribute('id', 'thisword');
     guess = document.createElement('li');
     guess.setAttribute('class', 'guess');
@@ -49,16 +49,16 @@ function removeAll(){
 //Onclick function - keeps track of the score, tries
 function track() {
     btn.onclick = function () {
-      var guess = (this.innerHTML);
+      let guess = (this.innerHTML);
       this.onclick = null;
       this.style.backgroundColor = "#387263";
-      for (var i = 0; i < wordSel.length; i++) {
+      for (let i = 0; i < wordSel.length; i++) {
         if (wordSel[i] === guess) {
           guesses[i].innerHTML = guess;
           score += 1;
         } 
       }
-      var j = (wordSel.indexOf(guess));
+      let j = (wordSel.indexOf(guess));
       if (j === -1) {
         maxTries -= 1;
         score -=1;
@@ -76,7 +76,7 @@ function tries() {
     if (maxTries < 1) {
       getAlphabet.innerHTML= "Game Over";
     }
-    for (var i = 0; i < guesses.length; i++) {
+    for (let i = 0; i < guesses.length; i++) {
       if (score + space >= guesses.length) {
         getAlphabet.innerHTML="Congratulation, you won!";
      }
