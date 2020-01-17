@@ -1,6 +1,6 @@
 (function(){
     // Initialize Firebase
-    var config = {
+    let config = {
         apiKey: "AIzaSyCdsNWK8L_pwITGoG5J9dlWxtAwfFZQU-w",
         authDomain: "comp4711assignmt1.firebaseapp.com",
         databaseURL: "https://comp4711assignmt1.firebaseio.com",
@@ -9,8 +9,8 @@
         messagingSenderId: "728014763979"
     };
     firebase.initializeApp(config);
-    var database = firebase.database();
-    var ref = database.ref('scores');
+    let database = firebase.database();
+    let ref = database.ref('scores');
     //on the event value, have two callbacks for recieving data and error
     ref.orderByChild('score').on('value',gotData, errData);
 
@@ -52,7 +52,7 @@
         const promise = auth.createUserWithEmailAndPassword(email,pass);
         
         promise.then(e => {
-            var user = firebase.auth().currentUser;
+            let user = firebase.auth().currentUser;
             user.updateProfile({
               displayName: "" + name
             });
@@ -93,8 +93,8 @@
 
     //Submit your score
     btnSubmit.addEventListener('click', function(){
-        var user = firebase.auth().currentUser;
-        var data = {
+        let user = firebase.auth().currentUser;
+        let data = {
             name: user.displayName,
             score: score
         }
@@ -124,18 +124,18 @@
 function gotData(data){
     //call .val to see actual data
     //console.log(data.val());
-    var scores = data.val();
+    let scores = data.val();
     //give array of all the keys in JS object/data
-    var keys = Object.keys(scores);
-    var sortedKey= keys.sort((keyA,keyB) => scores[keyB].score-scores[keyA].score);
+    let keys = Object.keys(scores);
+    let sortedKey= keys.sort((keyA,keyB) => scores[keyB].score-scores[keyA].score);
     //console.log(sortedK);
-    for (var i =0; i < sortedKey.length; i++){
-    var k = sortedKey[i];
-    var score = scores[k].score;
+    for (let i =0; i < sortedKey.length; i++){
+    let k = sortedKey[i];
+    let score = scores[k].score;
     console.log(score);
     
     //create element and add it to leaderboard
-    var li = document.createElement("LI");
+    let li = document.createElement("LI");
     scoretext = document.createTextNode(scores[k].name + "   " + score);
     li.appendChild(scoretext);
     document.getElementById("leaderboard").appendChild(li);
