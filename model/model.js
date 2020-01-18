@@ -6,13 +6,13 @@ let guessedLetters = [];
 let getTries = document.getElementById("triesLeft");
 let getScore = document.getElementById("score");
 
-//let getAlphabet = document.getElementById("button_alphabet");
+let resultText = document.getElementById("button_alphabet");
 let btn;
 let text;
 let reset = document.getElementById("reset");
 let defintion;
-let score;
-let space;
+let score = 0;
+let space = 0;
 
 let alphabet = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o",
                     "p","q","r","s","t","u","v","w","x","y","z"];

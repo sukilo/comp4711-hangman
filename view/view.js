@@ -9,7 +9,7 @@ function createAlphabet() {
   }
 }
 
-//Create guess of word by choosing random word and then replacing with '_'
+//Create fn to choose a random word and then replacing with '_' for guessing
 function createGuess () {
   wordSel = words[chosenWord][0];
   wordSel = wordSel.replace(/\s/g, "_");
@@ -17,14 +17,13 @@ function createGuess () {
   maxTries = 7;
   score = 0;
   space = 0;
-  answer();
+  createSpaces();
 }
 
-//Put the '_' in list
-function answer() {
-  wordHolder = document.getElementById('hold');
+//Creates the '_ _ _' for hangman
+function createSpaces() {
+  wordHolder = document.getElementById('guessingSpaces');
   correct = document.createElement('ul');
-  console.log("cat");
 
   for (let i = 0; i < wordSel.length; i++) {
     correct.setAttribute('id', 'thisword');
@@ -70,16 +69,16 @@ function track() {
     }
   }
 
-//Show number of tries left (max:7)
+//Show number of tries left (max:7) and display text when you win/lose
 function tries() {
   getTries.innerHTML = "Tries Left: " + maxTries;
   getScore.innerHTML = "Your score: " + score;
     if (maxTries < 1) {
-      getAlphabet.innerHTML= "Game Over";
+      resultText.innerHTML= "Game Over";
     }
     for (let i = 0; i < guesses.length; i++) {
-      if (score + space >= guesses.length) {
-        getAlphabet.innerHTML="Congratulation, you won!";
+      if ((score + space) >= guesses.length) {
+        resultText.innerHTML="Congratulation, you won!";
      }
   }
 }
@@ -91,8 +90,5 @@ window.onload = function() {
     createGuess();
     track();
     tries();
-    score();
-    alert("functions loaded");
-  //}
 }
 
