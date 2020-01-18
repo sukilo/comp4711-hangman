@@ -16,21 +16,22 @@ function createGuess () {
   console.log(wordSel);
   maxTries = 7;
   score = 0;
-  space = 0;
+  //space = 0;
   createSpaces();
 }
 
-//Creates the '_ _ _' for hangman
+//Creates the '_ _ _' in list
+/** 
 function createSpaces() {
-  wordHolder = document.getElementById('guessingSpaces');
-  correct = document.createElement('ul');
+  wordHolder = document.getElementById("guessingSpaces");
+  correct = document.createElement("ul");
 
   for (let i = 0; i < wordSel.length; i++) {
-    correct.setAttribute('id', 'thisword');
-    guess = document.createElement('li');
-    guess.setAttribute('class', 'guess');
-    if (wordSel[i] === "-") {
-      guess.innerHTML = "-";
+    correct.setAttribute("id", "thisword");
+    guess = document.createElement("li");
+    guess.setAttribute("class", "guess");
+    if (wordSel[i] === "_") {
+      guess.innerHTML = "_";
       space = 1;
     } else {
       guess.innerHTML = "_";
@@ -40,10 +41,33 @@ function createSpaces() {
     correct.appendChild(guess);
   }
 }
+*/
 
+function createSpaces(){
+  wordHolder = document.getElementById("guessingSpaces");
+  correct = document.createElement("ul");
+  console.log("meow");
+  for (let i = 0; i < wordSel.length; i++) {
+    correct.id="thisword";
+    guess = document.createElement("li");
+    
+    if (wordSel[i] === "_") {
+      guess.innerHTML = "_";
+      //space = 1;
+    } else {
+      guess.innerHTML = "_";
+    }
+    guesses.push(guess);
+    wordHolder.appendChild(correct);
+    correct.appendChild(guess);
+  }
+}
+
+/*
 function removeAll(){
   document.getElementById("checkList").innerHTML = "";
 }
+*/
 
 
 //Onclick function - keeps track of the score, tries
@@ -77,7 +101,7 @@ function tries() {
       resultText.innerHTML= "Game Over";
     }
     for (let i = 0; i < guesses.length; i++) {
-      if ((score + space) >= guesses.length) {
+      if (score >= guesses.length) {
         resultText.innerHTML="Congratulation, you won!";
      }
   }
