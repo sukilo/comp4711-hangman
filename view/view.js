@@ -1,12 +1,12 @@
-//Creates the alphabet buttonss
-let createAlphabet = function () {
-    for (let i = 0; i < alphabet.length; i++) {
+//Creates the alphabet buttons
+function createAlphabet() {
+  for (let i = 0; i < alphabet.length; i++) {
     btn = document.createElement("BUTTON"); // Create a <button> element
     text = document.createTextNode(alphabet[i]); // Create a text node
-    track();
-    btn.appendChild(text);                     // Append the text to <button>
+    btn.appendChild(text);   // Append the text to <button>
     document.getElementById("button_alphabet").appendChild(btn); // Append <button> to <body>
-    }
+    track(); 
+  }
 }
 
 //Create guess of word by choosing random word and then replacing with '_'
@@ -24,6 +24,7 @@ function createGuess () {
 function answer() {
   wordHolder = document.getElementById('hold');
   correct = document.createElement('ul');
+  console.log("cat");
 
   for (let i = 0; i < wordSel.length; i++) {
     correct.setAttribute('id', 'thisword');
@@ -82,3 +83,16 @@ function tries() {
      }
   }
 }
+
+/* load all function during start up */
+window.onload = function() {
+  //if(window.location.href.match('hangman.html')!= null){
+    createAlphabet();
+    createGuess();
+    track();
+    tries();
+    score();
+    alert("functions loaded");
+  //}
+}
+

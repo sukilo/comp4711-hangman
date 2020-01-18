@@ -1,12 +1,14 @@
 let maxTries = 7;
 let wordSel;
-let chosenWord;
 let guess;
 let guesses=[];
 let guessedLetters = [];        
 let getTries = document.getElementById("triesLeft");
 let getScore = document.getElementById("score");
-let getAlphabet = document.getElementById("button_alphabet");
+
+//let getAlphabet = document.getElementById("button_alphabet");
+let btn;
+let text;
 let reset = document.getElementById("reset");
 let defintion;
 let score;
@@ -32,3 +34,9 @@ let words = [
 ];
 
 
+let chosenWord = Math.floor(Math.random() * words.length);
+let wordDef = words[chosenWord][1];
+let defn = document.createElement("P");
+let textDef = document.createTextNode(wordDef);
+defn.appendChild(textDef);
+document.getElementById("definition").appendChild(defn);
