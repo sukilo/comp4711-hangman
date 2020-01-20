@@ -25,6 +25,7 @@
     const btnSubmit = document.getElementById('btnSubmit');
     const btnLeaderboard = document.getElementById('btnLeaderboard');
     const btnReset = document.getElementById('btnReset');
+    const btnHome = document.getElementById('btnHome');
 
     if (window.location.href.match('index.html') != null) {
         /*Add login event*/
@@ -139,7 +140,7 @@ function gotData(data){
         scoretext = document.createTextNode(scores[k].name + "   " + score);
         li.appendChild(scoretext);
         document.getElementById("leaderboard").appendChild(li);
-    }
+        }
 }
 
 function errData(err){
