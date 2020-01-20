@@ -1,4 +1,4 @@
-//Creates the alphabet buttons
+/*Creates the alphabet buttons*/
 function createAlphabet() {
   for (let i = 0; i < alphabet.length; i++) {
     btn = document.createElement("BUTTON"); // Create a <button> element
@@ -9,17 +9,17 @@ function createAlphabet() {
   }
 }
 
-//Create fn to choose a random word and then replacing with '_' for guessing
+/*Create fn to choose a random word and then replacing with '_' for guessing*/
 function createGuess () {
   wordSel = words[chosenWord][0];
   wordSel = wordSel.replace(/\s/g, "_");
   console.log(wordSel);
   maxTries = 7;
   score = 0;
-  //space = 0;
   createSpaces();
 }
 
+/*Create the spaces '_' using ul li*/ 
 function createSpaces(){
   wordHolder = document.getElementById("guessingSpaces");
   correct = document.createElement("ul");
@@ -29,7 +29,6 @@ function createSpaces(){
     
     if (wordSel[i] === "_") {
       guess.innerHTML = "_";
-      //space = 1;
     } else {
       guess.innerHTML = "_";
     }
@@ -39,7 +38,7 @@ function createSpaces(){
   }
 }
 
-//Onclick function - keeps track of the score, tries
+/*Onclick function - keeps track of the score, tries*/
 function track() {
     btn.onclick = function () {
       let guess = (this.innerHTML);
@@ -64,7 +63,7 @@ function track() {
     }
   }
 
-//Show number of tries left (max:7) and display text when you win/lose
+/*Show number of tries left (max:7) and display text when you win/lose*/
 function tries() {
   getTries.innerHTML = "Tries Left: " + maxTries;
   getScore.innerHTML = "Your score: " + score;
@@ -78,12 +77,13 @@ function tries() {
   }
 }
 
-/* load all function during start up */
+/* Load all function during start up */
 window.onload = function() {
-  //if(window.location.href.match('hangman.html')!= null){
+  if(window.location.href.match('hangman.html')!= null){
     createAlphabet();
     createGuess();
     track();
     tries();
+  }
 }
 
