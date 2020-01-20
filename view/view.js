@@ -20,35 +20,11 @@ function createGuess () {
   createSpaces();
 }
 
-//Creates the '_ _ _' in list
-/** 
-function createSpaces() {
-  wordHolder = document.getElementById("guessingSpaces");
-  correct = document.createElement("ul");
-
-  for (let i = 0; i < wordSel.length; i++) {
-    correct.setAttribute("id", "thisword");
-    guess = document.createElement("li");
-    guess.setAttribute("class", "guess");
-    if (wordSel[i] === "_") {
-      guess.innerHTML = "_";
-      space = 1;
-    } else {
-      guess.innerHTML = "_";
-    }
-    guesses.push(guess);
-    wordHolder.appendChild(correct);
-    correct.appendChild(guess);
-  }
-}
-*/
-
 function createSpaces(){
   wordHolder = document.getElementById("guessingSpaces");
   correct = document.createElement("ul");
-  console.log("meow");
   for (let i = 0; i < wordSel.length; i++) {
-    correct.id="thisword";
+    correct.id="thisSpace";
     guess = document.createElement("li");
     
     if (wordSel[i] === "_") {
@@ -63,27 +39,22 @@ function createSpaces(){
   }
 }
 
-/*
-function removeAll(){
-  document.getElementById("checkList").innerHTML = "";
-}
-*/
-
-
 //Onclick function - keeps track of the score, tries
 function track() {
     btn.onclick = function () {
       let guess = (this.innerHTML);
       this.onclick = null;
       this.style.backgroundColor = "#387263";
+      
       for (let i = 0; i < wordSel.length; i++) {
-        if (wordSel[i] === guess) {
-          guesses[i].innerHTML = guess;
+        if (wordSel[i] === guess) { 
+          guesses[i].innerHTML = guess; 
           score += 1;
         } 
       }
-      let j = (wordSel.indexOf(guess));
-      if (j === -1) {
+      
+      let value = (wordSel.indexOf(guess));
+      if (value === -1) { //if clicked wrong btn, indexOf shows -1
         maxTries -= 1;
         score -=1;
         tries();

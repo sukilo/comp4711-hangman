@@ -12,7 +12,6 @@ let text;
 let reset = document.getElementById("reset");
 let defintion;
 let score = 0;
-//let space = 0;
 
 let alphabet = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o",
                     "p","q","r","s","t","u","v","w","x","y","z"];
@@ -33,11 +32,12 @@ let words = [
     ["water","a colorless, transparent, odorless, tasteless liquid."],
 ];
 
-//randomly chooses a word 
+//Randomly chooses a word from the array
 let chosenWord = Math.floor(Math.random() * words.length);
-//
-let wordDef = words[chosenWord][1];
-let defn = document.createElement("P");
-let textDef = document.createTextNode(wordDef);
-defn.appendChild(textDef);
-document.getElementById("definition").appendChild(defn);
+
+//Display chosen word's definition
+let wordDef = words[chosenWord][1]; //the chosen word's def
+let textDef = document.createTextNode(wordDef); //creates text of the def
+let defn = document.createElement("P"); // create P element
+defn.appendChild(textDef); // append text of def to P element
+document.getElementById("definition").appendChild(defn); // append ^ to the html
